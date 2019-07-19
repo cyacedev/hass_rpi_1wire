@@ -1,0 +1,9 @@
+{
+    "domain": "rpi_1wire",
+    "name": "Raspberry PI 1-Wire integration",
+    "documentation": "https://www.example.com",
+    "dependencies": [],
+    "codeowners": ["@bashping"],
+    "requirements": [],
+    "config_flow":true
+  }
