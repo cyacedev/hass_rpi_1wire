@@ -17,7 +17,7 @@ class TempSensor(Entity):
     @property
     def name(self):
         """Return the name of the sensor."""
-        return 'Example Temperature'
+        return 'Speicher 1 Oben'
 
     @property
     def state(self):
@@ -33,4 +33,20 @@ class TempSensor(Entity):
         """Fetch new state data for the sensor.
         This is the only method that should fetch new data for Home Assistant.
         """
-        self._state = 23
+        self._state = self.readTemp("28-000005142450")
+
+    def readTemp(self, serial):
+        sensorPath = "/sys/bus/w1/devices/%s/w1_slave" % serial
+        if os.path.isfile(sensorPath) == True:
+            tfile = open(sensorPath) 
+            tempText = tfile.read() 
+            tfile.close() 
+            if tempText.find("YES") == -1:
+                return 0
+            temperatureData = temperatureData = tempText.split("\n")[1].split(" ")[9] 
+            temperature = decimal.Decimal(temperatureData[2:]) 
+            temperature = temperature / 1000
+            temperature = format(temperature, '.1f')
+            return temperature
+        else:
+            return 0
