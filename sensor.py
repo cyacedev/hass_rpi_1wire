@@ -1,5 +1,7 @@
 from homeassistant.const import TEMP_CELSIUS
 from homeassistant.helpers.entity import Entity
+import os
+import decimal
 
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
