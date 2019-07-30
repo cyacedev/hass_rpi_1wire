@@ -4,5 +4,5 @@
     "documentation": "https://wiki.cyace.dev",
     "dependencies": [],
     "codeowners": ["@bashping"],
-    "requirements": [],
+    "requirements": []
   }
