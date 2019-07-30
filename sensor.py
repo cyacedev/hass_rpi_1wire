@@ -24,7 +24,7 @@ class TempSensor(Entity):
     @property
     def name(self):
         """Return the name of the sensor."""
-        return nice_name
+        return self.nice_name
 
     @property
     def state(self):
@@ -43,7 +43,7 @@ class TempSensor(Entity):
         self._state = self.readTemp()
 
     def readTemp(self):
-        sensorPath = "/sys/bus/w1/devices/%s/w1_slave" % serial_id
+        sensorPath = "/sys/bus/w1/devices/%s/w1_slave" % self.serial_id
         if os.path.isfile(sensorPath) == True:
             tfile = open(sensorPath) 
             tempText = tfile.read() 
