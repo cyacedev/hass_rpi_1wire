@@ -1,8 +1,8 @@
 {
     "domain": "rpi_1wire",
     "name": "Raspberry PI 1-Wire integration",
-    "documentation": "https://wiki.cyace.dev",
+    "documentation": "",
     "dependencies": [],
-    "codeowners": ["@bashping"],
+    "codeowners": ["@cyacedev"],
     "requirements": []
   }
